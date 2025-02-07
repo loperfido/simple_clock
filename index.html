@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orologio e Data Centrali</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e1e;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        #clock {
+            font-size: 80px;
+            color: #e1e1e1;
+        }
+
+        #date {
+            font-size: 40px;
+            color: #959595;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="clock"></div>
+        <div id="date"></div>
+    </div>
+    <script>
+        function updateClockAndDate() {
+            const now = new Date();
+
+            // Aggiorna l'orario
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+
+            // Aggiorna la data
+            const day = String(now.getDate()).padStart(2, '0');
+            const month = String(now.getMonth() + 1).padStart(2, '0'); // I mesi sono indicizzati da 0 a 11
+            const year = now.getFullYear();
+            const dateString = `${day}/${month}/${year}`;
+            document.getElementById('date').textContent = dateString;
+        }
+
+        // Aggiorna l'orologio e la data immediatamente e poi ogni secondo
+        updateClockAndDate();
+        setInterval(updateClockAndDate, 1000);
+    </script>
+</body>
+
+</html>

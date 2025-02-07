@@ -1,0 +1,16 @@
+{
+    "short_name": "CrisLop",
+    "name": "Cristian Loperfido",
+    "icons": [
+        {
+            "src": "image/logo.png",
+            "type": "image/png",
+            "sizes": "1024x1024"
+        }
+    ],
+    "start_url": "/index.html",
+    "background_color": "#3f3f3f",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#3f3f3f"
+}
